@@ -1,0 +1,422 @@
+Session 1
+
+Lecture:
+11) Overview of OS
+12) Introduction to Linux
+13) The Linux File System
+14) Working with Files and Directories
+15) Getting Started with Linux
+16) Revision of basic Commands
+
+    Getting Acquainted with the Linux Environment
+    Use various commands in Linux system.
+    (ls, cp, mv, lpr, sort, grep, cat, tac, more, head, tail, man, whatis, whereis, locate, find, diff, file, rm, mkdir, rmdir, cd, pwd, ln and ln –s, gzip and gunzip, zip and unzip, tar an its variants, zcat, cal, bc and bc –l, banner date, time, wc, touch, echo, who, finger, w, whoami, who am i, alias, unalias, touch, push, pop, jobs, ps, etc.)
+
+Session 2
+Lecture:
+Gaining confidence with Linux
+21) Access control list and chmod command
+22) chown and commands
+23) Network Commands like telnet, ftp, ssh, and sftp,finger
+24) Use of secondary storage devices (Like: - Hard disk, Floppy, CDROM) in Linux environment and formatting of these devices.
+
+
+Sessions 1
+==========
+
+11) Overview of OS - Chapter 1 from Silverchatz book
+===
+
+12) Introduction to Linux
+===
+
+	Linux has four major parts:
+
+	The kernel
+		The low-level operating system, handling files, disks, net‐
+		working, and other necessities we take for granted. Most
+		users rarely notice the kernel.
+	
+	Supplied programs
+		Thousands of programs for file manipulation, text editing,
+		mathematics, web browsing, audio, video, computer pro‐
+		gramming, typesetting, encryption, DVD burning...you
+		name it.
+	
+	The shell
+		A user interface for typing commands, executing them,
+		and displaying the results. Linux has various shells: the
+		Bourne shell, Korn shell, C shell, and others. bash, the Bourne-Again Shell, 
+                which is often the default for user accounts. However, all these shells
+		have similar basic functions.
+	X
+		A graphical system that provides windows, menus, icons,
+		mouse support, and other familiar GUI elements. More
+		complex graphical environments are built on X; the most
+		popular are KDE and GNOME. We’ll discuss only a few
+		programs that open X windows to run.
+
+13) The Linux File System
+===
+
+	File holds data. In order to distinguish the contents, we name the files.
+	
+	Directory is a special file which holds together other file(s).
+                               ----
+	Note: Directory equivalent to Folder in Windows
+
+	Concept of a sub-directory
+
+	If a directory named as P contains a file called as S and if S is also directory on its own then S is called subdirectory of P. 
+        P in this case is called Parent directory.
+
+	Top most directory in Linux is denoted by / and is called root directory.
+
+	All the files descent from root directory in Linux environment.
+
+	In order to refer file(s), we have two mechanisms to address::
+	i)  Absolutel path
+	ii) Relative path
+
+	Absolute path starts with root directory. E.g., P s a directory and contains sub-directory called as S and S contains a file called as F then 
+
+	Absolutel path for referring F would be 
+
+	/P/S/F
+
+	Relative Path concept emerges based on your current position in the file system.
+
+	Current position in the file system is denoted by .(period)
+
+	.. refers to one level above w.r.t. current position.
+
+
+	Filesystem in Linux/Unix/UNIX is Hierarchical
+
+        Demonstrate FS on the Laptop
+	/ /bin /usr/bin /etc /var/adm
+
+
+14) Working with Files and Directories
+===
+
+	mkdir
+
+	mkdir -p
+
+	cd
+
+	rmdir
+
+	rm
+
+	rm -rf 
+	recursively deletes a given directory
+
+
+        Concept of home directory and HOME
+
+        Directory traversing and file access demo using absolute path and relative path.
+
+	cat
+
+	ls
+
+	more
+
+Categories for programs
+-----------------------
+bin 	Programs (usually binary files)
+sbin 	Programs (usually binary files) intended to be run by the superuser
+lib 	Libraries of code used by programs
+
+Categories for documentation
+----------------------------
+doc 	Documentation
+info 	Documentation files for emacs’s built-in help system
+man 	Documentation files (manual pages) displayed by the man program; the files are often compressed and are sprinkled with typesetting commands for man to interpret share Program-specific files, such as examples and installation instructions
+
+Categories for configuration
+----------------------------
+etc 	Configuration files for the system (and other miscellaneous stuff)
+init.d 	Configuration files for booting Linux
+rc.d 	Configuration files for booting Linux; also rc1.d, rc2.d, ...
+
+Categories for programming
+--------------------------
+include	 Header files for programming
+
+Categories for web files
+------------------------
+cgi-bin 	Scripts/programs that run on web pages
+html 		Web pages
+public_html 	Web pages, typically in users’ home directories
+www	 	Web pages
+
+Categories for display
+----------------------
+fonts		Fonts (surprise!)
+X11 		X window system files
+
+Categories for hardware
+-----------------------
+dev 		Device files for interfacing with disks and other hardware
+media Mount points: directories that provide access to disks
+mnt 		Mount points: directories that provide access to disks
+
+Categories for runtime files
+----------------------------
+
+var 		Files specific to this computer, created and updated as the computer runs
+
+lock 		Lock files, created by programs to say, “I am running”; the existence of a lock file may prevent another program, or another instance of the same program, from running or performing an
+action
+
+log 		Log files that track important system events, containing error, warning, and informational messages
+
+mail Mailboxes for incoming mail
+
+run 		PID files, which contain the IDs of running processes; these files are often consulted to track or kill particular processes
+
+spool 		Files queued or in transit, such as outgoing email, print jobs, and scheduled jobs
+tmp Temporary storage for programs and/or people to use
+
+proc 		Operating system state
+
+/usr 		More system files supplied with Linux (pronounced “user”)
+
+/usr/local 	System files developed “locally,” either for your organization or your individual computer
+
+/usr/games 	Games
+
+
+Operating System Directories
+----------------------------
+
+/boot		 Files for booting the system. This is where the kernel lives, typically named /boot/vmlinuz or similar.  /lost+found	 Damaged files that were rescued by a disk recovery tool.
+
+/proc		 Describes currently running processes; for advanced users.
+
+System Directories
+------------------
+
+	/bin, /sbin, /lib, /etc, 
+        /dev, /mnt, /media
+	/var, /var/log, /var/spool
+	/usr/bin, /usr/local, /usr/games, /usr/include
+
+	/boot, /lost+found, /proc
+
+15) Getting Started with Linux
+============================
+
+Users
+-----
+	Normal end users
+	Super user (root, root priviledges)
+
+Access Control (Permissions) on the FS
+--------------------------------------
+
+	r	Read
+	w	Write
+	x	eXecute
+
+
+16) Revision of Basic Commands
+==============================
+
+How to read man pages?
+
+
+ls
+Useful options:: -a -l, -t -d -g -s -U --help --version
+
+man
+Useful options:: -k -a
+
+info
+
+echo hello
+echo hello world
+echo hello \n world
+echo -e hello \n world
+
+Useful options:: -n -e
+
+cp 
+Useful options:: -i -n -r -u -v 
+
+mv 
+Useful options:: -i -n -f -u
+
+lpr -# -P 
+
+sort 
+Useful options:: -d -r -f -g -M -k pos1[,pos2] -t -u
+
+sort names2
+sort -r names2
+sort -u names2
+sort names2 -t: -k2,2n 
+sort names2 -t: -k2,2n -k3,3r
+
+grep -i -c -l
+
+
+tac 
+
+more 
+
+head  -n -c
+
+tail  -n -f
+
+whatis -s
+
+whereis -b -m -s 
+
+locate 
+
+find 
+
+diff -q -e -i 
+diff names2 d_names2
+diff ws1 ws3
+diff -i ws1 ws3
+diff ws1 ws2
+diff -q ws2 ws2
+
+file 
+
+pwd 
+
+ln and ln –s 
+
+	** First :: ls -l
+	   Show link count
+	   When link count decresed to zero?
+	   Install the pendrive
+
+	   show df -k before and after pendrive installation
+
+	   Within the pendrive, ln a b
+	   ln a /tmp/b
+	   ln -s a /tmp/b
+
+	   remove the pendrive
+	   
+
+File Compression and Packaging
+------------------------------
+tar 		Package multiple files into a single file.
+cvf
+xvf
+
+tar cvf one.tar a1.c a2.c *.f77 dir_a
+tar xvf one.tar
+
+
+
+gzip 		Compress files with GNU Zip.
+gunzip 		Uncompress GNU Zip files.
+bzip2 		Compress files in BZip format.
+bunzip2 	Uncompress BZip files.
+bzcat 		Compress/uncompress BZip files via standard input/output.
+compress 	Compress files with traditional Unix compression.
+uncompress 	Uncompress files with traditional Unix compression.
+zcat 		Compress/uncompress file via standard input/output (gzip or
+compress).
+zip 		Compress files in Windows Zip format.
+unzip 		Uncompress Windows Zip files.
+
+
+gzip file 	Compress file to create file.gz . Original file is deleted.
+gzip -c file 	Produce compressed data on standard output.
+cat file | gzip Produce compressed data from a pipeline.
+gunzip file.gz 	Uncompress file.gz to create file. Original file.gz is deleted.
+gunzip -c file.gz Uncompress the data on standard output.
+cat file.gz | gunzip Uncompress the data from a pipeline.
+zcat file.gz 	Uncompress the data on standard output.
+
+tar -czf tarfile dir 	Pack directory dir into a gzipped tar file. Use -cvzf to print filenames as they are processed.
+
+
+cal 
+bc and bc –l 
+banner
+date 
+
+time 
+
+wc 
+touch 
+who
+
+finger 
+finger stdin stdout - file -- opt --help --version
+finger [options] [user[@host]]
+
+The finger command prints logged-in user information in a short form:
+$ finger
+Login 	Name 		Tty 	Idle 	Login Time
+smith 	Sandy Smith 	:0 		Sep 6 17:09
+barrett Daniel Barrett :pts/1 	24 	Sep 6 17:10
+
+long form:
+$ finger smith
+Login: smith
+Name: Sandy Smith
+Directory: /home/smith
+Shell: /bin/bash
+On since Sat Sep 6 17:09 (EDT) on :0
+Last login Mon Sep 8 21:07 (EDT) on pts/6 from web1
+No mail.
+Project:
+Enhance world peace
+Plan:
+Mistrust first impulses; they are always right.
+
+The user argument can be a local username or a remote user in
+the form user@host . Remote hosts will respond to finger
+requests only if they are configured to do so.
+
+Useful options
+-l Print in long format.
+-s Print in short format.
+-p Don’t display the Project and Plan sections, which are ordinarily read from the user’s ~/.project and ~/.plan files, respectively.
+
+w 
+whoam 
+id
+
+alias unalias 
+
+pushd, popd, jobs, 
+
+ps 
+
+=========================================
+
+^Z ^C
+
+
+**************************************
+Session 2
+**************************************
+
+
+21) Access control list and chmod command
+
+    Concept of owner, group and others
+
+    r 4
+    w 2
+    x 1
+
+
+22) chown and chgrp commands
+
+23) Network Commands like telnet, ftp, ssh, and sftp, finger
+
+24) Use of secondary storage devices (Like: - Hard disk, Floppy, CDROM) in Linux environment and formatting of these devices.

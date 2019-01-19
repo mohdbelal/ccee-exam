@@ -1,0 +1,29 @@
+#
+# Classify given character 
+#
+if [ $# -ne 1 ]
+then
+echo Usage: $0 char
+exit 1
+fi
+#
+# Ensure that only one character was typed
+#
+char="$1"
+numchars=$(echo "$char" | wc -c)
+if [ "$numchars" -ne 2 ]
+then
+echo "Please type a single character"
+exit 1
+fi
+#
+# Now classify the character
+#
+case "$char"
+in
+[0-9]) echo "Digit";;
+[a-z]) echo "Lowercase";;
+[A-Z]) echo "Uppercase";;
+?) echo "Special Character";;
+*) echo "Unknown";;
+esac

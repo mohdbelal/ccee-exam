@@ -1,0 +1,118 @@
+Debugging shell scripts using -x option
+=======================================
+
+Example:
+
+Refer to program  bablus_ctype
+
+sh -x bablus_ctype 8
+
+=========================
+
+The symbol | has the effect of a logical OR when used between two patterns.
+
+Refer program bablus_greetings
+=========================
+The Null Command :
+=========================
+2>&1
+
+command > stdout.txt 2>&1 
+
+command will redirect stdout to stdout.txt first and the second directive says, 2> which means stderr redirection, but where? is answered by 1, i.e., stdout.
+
+=========================
+
+The && and || Constructs
+
+[ -z "$EDITOR" ] && EDITOR=/bin/vi
+
+tests the value of the variable EDITOR . If it’s null, /bin/vi is assigned to it.
+
+who | grep "^$name " > /dev/null || echo "$name's not logged on" \
+&& echo "$name is logged on"
+
+
+Refer example bablus_for_loop
+Refer example bablus_for_loop_corrected
+
+$* and $@ both act same in general but differs when enclosed in "".
+
+for var 
+is equivalent to 
+for var in "$@"
+
+Refer bablus_while
+
+
+read command
+------------
+
+The general format of the read command is
+
+read variables
+
+When this command is executed, the shell reads a line from standard input and assigns the first word to the first variable listed in variables , the second word to the second variable, and so on. 
+
+If there are more words on the line than there are variables listed, the excess words get assigned to the last variable. 
+
+For example, the command
+
+$ read x y
+
+reads a line from standard input, storing the first word in variable x , and the remainder of the line in variable y . 
+
+It follows from this that the command
+
+$ read text
+
+reads and stores an entire line into the shell variable text .
+
+Leading whitespace characters are removed from any line that’s read. The backslash characters are also interpreted by the shell when it reads the line. 
+
+You can use the –r option of read to prevent it from interpreting the backslash character.
+==================================================================
+df -T
+Observe file system names
+Different file systems
+
+==================================================================
+
+# sample shell script
+
+
+# gtn is given telephone number by the end user
+# We need to validate this input against the following rules
+# It should be 10 digit number
+# It should not start with digit 0
+
+while [ 1 ]
+do
+	echo "Give telephone number; 10-digits please; starting with non-zero"
+	read gtn
+
+	# First lets find out is it having any non-numeric characters
+	x=`echo $gtn | tr -d [0-9]`
+	
+	if [ "$x" ]  # if $x is not null, it means gtn contains non digit characters
+	then
+	  echo "Provide 10 digit number only"
+	else         # $x is null it means gtn has only digits
+	   # Now check for length of the numeric string
+	   if [ `echo $gtn|wc -c` -ne 11 ]
+	   then
+	      echo "Given number should contain only 10 digits"
+	   else
+	      # Check for first digit
+	      x=`echo $gtn|cut -c1`
+	      if [ "$x" -eq "0" ]
+	      then
+	         echo "First digit can not be 0"
+	      else
+	         echo "Given tel number $gtn is acceptable"
+	      fi
+	   fi
+	fi
+done
+
+==================================================================

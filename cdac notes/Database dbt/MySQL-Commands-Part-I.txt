@@ -1,0 +1,129 @@
+# Connecting through MySQL Shell -
+===============================================
+mysqlsh -h host -u user -p
+mysqlsh -localhost -u root -p
+
+mysqlsh -h 192.168.2.128 -u stud01
+.
+.
+mysqlsh -h 192.168.2.128 -u stud93
+
+OR 
+==
+# MySQL Shell Connectivity -
+
+mysqlsh
+\SQL
+\CONNECT root@localhost
+
+
+# Connecting to MySQL Monitor Command line
+===============================================
+mysql -h host -u user -p
+mysql -localhost -u root -p
+
+mysqlsh -h 192.168.2.128 -u stud01
+.
+.
+mysqlsh -h 192.168.2.128 -u stud93
+
+
+================================================
+
+# Creating a database/schema [may give error due to insufficient privileges]
+
+CREATE DATABASE mydb;
+CREATE SCHEMA mydb_temp;
+
+# Listing all databases
+
+SHOW DATABASES;
+
+# Connecting to a database / Setting a default database
+
+USE mydb;
+
+USE mydb01;
+.
+.
+.
+USE mydb93;
+
+# MySQL Shell Help
+
+\?
+\h
+help
+help contents
+
+\s		-- status
+\q		= quit/exit
+\u		= use <database name>
+\g		= ; send command to mysql server = ;
+\G 		-- vertical display
+
+# Few Useful Commands
+
+SELECT version();
+SELECT current_date;
+SELECT current_time;
+SELECT current_timestamp;
+SELECT version();
+
+SELECT version(), current_date, current_time, current_timestamp;
+
+SELECT version(); SELECT now();
+
+SHOW DATABASES;
+SHOW DATABASES\g
+SHOW DATABASES\G
+
+SELECT 4+4, 4/3, 3*(2/1.5)+4;
+
+
+SELECT user();
+SELECT database();
+SELECT schema();
+
+# Creating User/Roles; [may give error due to insufficient privileges]
+
+CREATE USER 'rajeev' IDENTIFIED BY 'welcome';
+GRANT ALL ON mydb.* TO 'rajeev';
+SELECT user, host FROM mysql.user;
+SHOW GRANTS FOR 'rajeev@%'
+
+# Creating a Table -
+
+CREATE TABLE dept(  
+  deptno     integer(2),  
+  dname      VARCHAR(14),  
+  loc        VARCHAR(13),  
+  constraint pk_dept primary key (deptno)  
+);
+
+create table emp(  
+  empno    integer,  
+  ename    varchar(10),  
+  job      varchar(9),  
+  mgr      integer,  
+  hiredate date,  
+  sal      integer,  
+  comm     integer,  
+  deptno   integer,  
+  constraint pk_emp primary key (empno),  
+  constraint fk_deptno foreign key (deptno) references dept (deptno)  
+);
+
+# Listing all tables
+
+SHOW tables;
+
+# Describing a Table -
+
+DESCRIBE emp;
+DESCRIBE dept;
+
+
+
+========================
+

@@ -1,0 +1,10 @@
+Signals are notifications issued by one process to another and/or issued by the OS proceses/kernel to the user/os processes.
+
+To see the list of all the signals in the system
+
+kill -l
+
+Identify some of the useful signals
+SIGHUP, SIGINT, SIGABRT, SIGKILL, SIGTERM
+
+
